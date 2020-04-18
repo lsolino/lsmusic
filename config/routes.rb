@@ -8,6 +8,9 @@ Rails.application.routes.draw do
       resources :dashboards, only: :index
       resources :searches, only: :index
       resources :categories, only: [:index, :show]
+      resources :albums, only: :show do
+        resources :recently_heards, only: :create
+      end
     end
   end
 end
