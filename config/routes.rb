@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :dashboards, only: :index
       resources :searches, only: :index
-      resources :categories, only: :index
+      resources :categories, only: [:index, :show]
     end
   end
 end
