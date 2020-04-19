@@ -25,12 +25,12 @@ const Menu = () => {
     actionButton = <Dropdown className='is-pulled-right is-right' color='dark' label={<FaUserCircle size="2em" />}>
      <Dropdown.Item value="other">
        <a href='/users/edit'>
-        Edit User
+        Editar Usuário
        </a>
      </Dropdown.Item>
      <Dropdown.Item value="other">
        <a href='/users/sign_out'>
-        LogOut
+        Logout
        </a>
      </Dropdown.Item>
    </Dropdown>
