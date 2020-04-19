@@ -44,4 +44,5 @@ const NavbarFooter = () => {
     </Fragment>
   );
 }
+
 export default NavbarFooter;
