@@ -1,7 +1,7 @@
 import Api from './api';
 
 const AlbumsService = {
-  index: () => Api.get('/dashboard')
+  index: () => Api.get('/dashboards')
 }
 
 export default AlbumsService;
