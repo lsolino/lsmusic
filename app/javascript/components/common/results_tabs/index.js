@@ -3,6 +3,7 @@ import { Columns, Tabs } from 'react-bulma-components';
 import styled, { css } from 'styled-components'
 import Album from '../../common/album';
 import Musics from '../../musics';
+import Artist from '../../common/artist';
 
 const CustomTab = styled(Tabs.Tab)`
  a{
@@ -17,6 +18,7 @@ const ResultsTabs = (props) => {
 
   const [active_tab, setActiveTab] = useState("albums");
   const [albums, setAlbums] = useState([]);
+  const [artists, setArtists] = useState([]);
 
   useEffect(() => {
     setAlbums(props.albums.map((album, key) =>
@@ -25,6 +27,14 @@ const ResultsTabs = (props) => {
       </Columns.Column>
     ));
   }, [props.albums, props.artist_name, props.songs]);
+
+  useEffect(() => {
+    setArtists(props.artists.map((artist, key) =>
+      <Columns.Column desktop={{ size: 3 }} mobile={{ size: 6 }} key={key}>
+        <Artist photo={artist.photo_url} name={artist.name} id={artist.id} />
+      </Columns.Column>
+    ));
+  }, [props.artists, props.songs]);
 
   return (
     <Fragment>
@@ -51,7 +61,7 @@ const ResultsTabs = (props) => {
 
         <div style={{ display: active_tab != 'artists' ? "none" : "" }}>
           <div className="columns is-mobile is-multiline">
-            Artists
+            {artists}
           </div>
         </div>
 
