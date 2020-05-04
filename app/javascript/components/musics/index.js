@@ -1,8 +1,10 @@
-import React, { Fragment, useState, useEffect, useRef } from 'react';
+import React, { Fragment, useState, useEffect, useRef} from 'react';
 import styled from 'styled-components';
 import Music from './music';
 import { Button, Columns } from 'react-bulma-components';
 import RecentlyHeardsService from '../../services/recently_heards';
+import AudioPlayer from 'react-h5-audio-player';
+import 'react-h5-audio-player/lib/styles.css';
 
 const PlaySequenceButton = styled(Button)`
  margin-bottom: 30px;
@@ -73,12 +75,12 @@ const Musics = (props) => {
           >
             {playRandom == true ? 'Parar de tocar' : 'Tocar aleatoriamente'}
           </PlaySequenceButton>
-          <audio controls ref={AudioRef} onEnded={() => NextSong()} className='is-hidden'>
-            <source src={playing.file_url} />
-          </audio>
         </Columns.Column>
       </Columns>
       {songs}
+      <audio controls ref={AudioRef} onEnded={() => NextSong() } className="is-hidden">
+        <source src={playing.file_url}></source>
+      </audio>
     </Fragment>
   );
 }
